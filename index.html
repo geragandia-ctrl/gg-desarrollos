@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerardo Gandía</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F8F7FB;
+      --ink: #12111A;
+      --slate: #4A4860;
+      --blue: #38618C;
+      --blue-mid: #9395D3;
+      --blue-light: #B3B7EE;
+      --blue-pale: #FBF9FF;
+      --line: rgba(18,17,26,0.1);
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'Outfit', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--sans); overflow-x: hidden; }
+
+    section {
+      min-height: 100svh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── HERO ── */
+    #hero { padding: 4rem 2rem 3rem; }
+
+    .hero-grid {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 4rem;
+      min-height: calc(100svh - 7rem);
+    }
+
+    .hero-left { display: flex; flex-direction: column; gap: 2rem; }
+
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
+    }
+    .tag {
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.3rem 0.75rem; border-radius: 999px;
+      border: 1px solid var(--line); color: var(--slate); background: white;
+    }
+    .tag.accent { background: var(--blue); color: white; border-color: var(--blue); }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.8rem, 7vw, 6.5rem);
+      line-height: 0.95; letter-spacing: -0.02em; color: var(--ink);
+      opacity: 0; animation: fadeUp 0.8s 0.25s forwards;
+    }
+    .hero-name em { font-style: italic; color: var(--blue); }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 1.6vw, 1.15rem); font-weight: 300;
+      color: var(--slate); line-height: 1.65; max-width: 400px;
+      opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+    }
+
+    .hero-cta {
+      display: flex; align-items: center; gap: 1rem;
+      opacity: 0; animation: fadeUp 0.8s 0.55s forwards;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--blue); color: white;
+      font-family: var(--sans); font-size: 0.85rem; font-weight: 500;
+      padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: #2d5070; transform: translateY(-1px); }
+    .scroll-down {
+      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.1em;
+      color: var(--slate); opacity: 0.55; text-transform: uppercase; text-decoration: none;
+    }
+
+    /* Mock */
+    .hero-right { opacity: 0; animation: fadeLeft 0.9s 0.5s forwards; }
+
+    .mock-window {
+      background: white; border-radius: 14px;
+      box-shadow: 0 1px 2px rgba(18,17,26,0.04), 0 8px 32px rgba(56,97,140,0.12), 0 32px 80px rgba(56,97,140,0.08);
+      overflow: hidden; border: 1px solid rgba(18,17,26,0.06);
+    }
+    .mock-bar {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem; background: #F2F1F5;
+      border-bottom: 1px solid rgba(18,17,26,0.07);
+    }
+    .mock-dots { display: flex; gap: 5px; }
+    .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mock-dot:nth-child(1) { background: #FF5F57; }
+    .mock-dot:nth-child(2) { background: #FEBC2E; }
+    .mock-dot:nth-child(3) { background: #28C840; }
+    .mock-url {
+      flex: 1; background: white; border-radius: 6px;
+      padding: 0.3rem 0.75rem; font-size: 0.72rem; color: var(--slate);
+      border: 1px solid var(--line);
+    }
+    .mock-body { display: flex; height: 340px; }
+    .mock-sidebar {
+      width: 140px; background: #1C2333;
+      padding: 1.2rem 0.8rem; display: flex; flex-direction: column; gap: 0.25rem; flex-shrink: 0;
+    }
+    .mock-logo {
+      font-family: var(--serif); font-size: 0.95rem; color: white;
+      padding: 0 0.4rem 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.5rem;
+    }
+    .mock-nav-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.45rem 0.6rem; border-radius: 6px;
+      font-size: 0.7rem; color: rgba(255,255,255,0.5);
+    }
+    .mock-nav-item.active { background: rgba(147,149,211,0.2); color: var(--blue-light); }
+    .mock-nav-icon {
+      width: 14px; height: 14px; border-radius: 3px;
+      background: rgba(255,255,255,0.12); flex-shrink: 0;
+    }
+    .mock-nav-item.active .mock-nav-icon { background: var(--blue-mid); }
+    .mock-main { flex: 1; padding: 1.2rem 1rem; overflow: hidden; }
+    .mock-title { font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.9rem; }
+    .mock-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1rem; }
+    .mock-stat { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 0.7rem 0.8rem; }
+    .mock-stat-label { font-size: 0.6rem; color: var(--slate); margin-bottom: 0.3rem; }
+    .mock-stat-val { font-size: 1.2rem; font-weight: 600; color: var(--ink); }
+    .mock-stat-sub { font-size: 0.6rem; color: #38618C; margin-top: 0.15rem; }
+    .mock-rows { display: flex; flex-direction: column; gap: 0.4rem; }
+    .mock-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: white; border: 1px solid var(--line);
+      border-radius: 7px; padding: 0.5rem 0.7rem; font-size: 0.68rem;
+    }
+    .mock-row-left { display: flex; align-items: center; gap: 0.5rem; }
+    .mock-dot-status { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .mock-badge { font-size: 0.6rem; font-weight: 500; padding: 0.2rem 0.55rem; border-radius: 999px; }
+    .badge-new { background: #EFF6FF; color: #2563EB; }
+    .badge-resp { background: #FFF7ED; color: #D97706; }
+    .badge-done { background: #F0FDF4; color: #16A34A; }
+
+    /* BG hero */
+    .hero-geo { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+    .hero-geo svg { width: 100%; height: 100%; }
+
+    /* ── CONTACTO ── */
+    #contacto { background: #12111A; color: white; padding: 5rem 2rem; }
+    .contact-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+    .contact-eyebrow {
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--blue-mid); display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 2.5rem; opacity: 0; transition: opacity 0.6s;
+    }
+    .contact-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--blue-mid); }
+    .contact-heading {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: 1; letter-spacing: -0.02em; color: white;
+      margin-bottom: 3.5rem; opacity: 0; transition: opacity 0.6s 0.15s;
+    }
+    .contact-heading em { font-style: italic; color: var(--blue-mid); }
+    .contact-links { opacity: 0; transition: opacity 0.6s 0.3s; }
+    .contact-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 0; border-top: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none; color: white; transition: all 0.25s; gap: 1rem;
+    }
+    .contact-link:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .contact-link:hover { padding-left: 0.75rem; }
+    .contact-link:hover .link-arrow { transform: translate(4px,-4px); color: var(--blue-mid); }
+    .contact-link:hover .link-value { color: var(--blue-light); }
+    .link-type { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.25rem; }
+    .link-value { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2.2rem); transition: color 0.25s; }
+    .link-arrow { font-size: 1.6rem; opacity: 0.4; transition: all 0.25s; flex-shrink: 0; }
+    .contact-geo { position: absolute; inset: 0; pointer-events: none; opacity: 0.05; overflow: hidden; }
+
+    /* ── FOOTER ── */
+    footer {
+      scroll-snap-align: none;
+      background: #0D0C14;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      user-select: none;
+    }
+    .footer-brand em {
+      font-style: italic;
+      color: rgba(147,149,211,0.2);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .visible { opacity: 1 !important; }
+
+    @media (max-width: 780px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-right { order: -1; }
+      .mock-body { height: 280px; }
+      .mock-sidebar { width: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+<section id="hero">
+  <div class="hero-geo">
+    <svg viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="1380" cy="-60" r="380" stroke="#38618C" stroke-width="1" opacity="0.15"/>
+      <circle cx="1380" cy="-60" r="240" stroke="#9395D3" stroke-width="0.6" opacity="0.1"/>
+      <circle cx="-40" cy="860" r="300" stroke="#9395D3" stroke-width="0.8" opacity="0.1"/>
+      <line x1="0" y1="500" x2="400" y2="0" stroke="#38618C" stroke-width="0.5" opacity="0.07"/>
+      <line x1="80" y1="900" x2="560" y2="100" stroke="#38618C" stroke-width="0.4" opacity="0.05"/>
+      <circle cx="720" cy="820" r="1.5" fill="#9395D3" opacity="0.25"/>
+      <circle cx="756" cy="820" r="1.5" fill="#9395D3" opacity="0.18"/>
+      <circle cx="792" cy="820" r="1.5" fill="#9395D3" opacity="0.12"/>
+      <circle cx="720" cy="856" r="1.5" fill="#9395D3" opacity="0.18"/>
+      <circle cx="756" cy="856" r="1.5" fill="#9395D3" opacity="0.12"/>
+      <circle cx="792" cy="856" r="1.5" fill="#9395D3" opacity="0.08"/>
+    </svg>
+  </div>
+
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-tags">
+        <span class="tag accent">Desarrollo de software</span>
+        <span class="tag">Sistemas de gestión</span>
+        <span class="tag">Web Apps</span>
+        <span class="tag">Landings</span>
+        <span class="tag">Lo que necesitás</span>
+      </div>
+      <h1 class="hero-name">Gerardo<br><em>Gandía</em></h1>
+      <p class="hero-tagline">Convierto ideas en productos digitales.</p>
+      <div class="hero-cta">
+        <a href="#contacto" class="btn-primary">Hablemos →</a>
+        <a href="#contacto" class="scroll-down">Contacto</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="mock-window">
+        <div class="mock-bar">
+          <div class="mock-dots">
+            <div class="mock-dot"></div>
+            <div class="mock-dot"></div>
+            <div class="mock-dot"></div>
+          </div>
+          <div class="mock-url">miapp.com/dashboard</div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-sidebar">
+            <div class="mock-logo">GG · Studio</div>
+            <div class="mock-nav-item"><div class="mock-nav-icon"></div> Inicio</div>
+            <div class="mock-nav-item active"><div class="mock-nav-icon"></div> Panel</div>
+            <div class="mock-nav-item"><div class="mock-nav-icon"></div> Clientes</div>
+            <div class="mock-nav-item"><div class="mock-nav-icon"></div> Reportes</div>
+            <div class="mock-nav-item"><div class="mock-nav-icon"></div> Config</div>
+          </div>
+          <div class="mock-main">
+            <div class="mock-title">Resumen del mes</div>
+            <div class="mock-stats">
+              <div class="mock-stat">
+                <div class="mock-stat-label">Proyectos activos</div>
+                <div class="mock-stat-val">7</div>
+                <div class="mock-stat-sub">↑ 2 nuevos</div>
+              </div>
+              <div class="mock-stat">
+                <div class="mock-stat-label">Este mes</div>
+                <div class="mock-stat-val">24</div>
+                <div class="mock-stat-sub">ver todos</div>
+              </div>
+            </div>
+            <div class="mock-rows">
+              <div class="mock-row">
+                <div class="mock-row-left">
+                  <div class="mock-dot-status" style="background:#2563EB"></div>
+                  <span>Sistema de gestión · Córdoba</span>
+                </div>
+                <span class="mock-badge badge-new">Nuevo</span>
+              </div>
+              <div class="mock-row">
+                <div class="mock-row-left">
+                  <div class="mock-dot-status" style="background:#D97706"></div>
+                  <span>Web App · E-commerce</span>
+                </div>
+                <span class="mock-badge badge-resp">En proceso</span>
+              </div>
+              <div class="mock-row">
+                <div class="mock-row-left">
+                  <div class="mock-dot-status" style="background:#16A34A"></div>
+                  <span>Landing · Producto SaaS</span>
+                </div>
+                <span class="mock-badge badge-done">Entregado ✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="contact-geo">
+    <svg viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="1300" cy="900" r="500" stroke="white" stroke-width="1"/>
+      <circle cx="1300" cy="900" r="320" stroke="white" stroke-width="0.5"/>
+      <line x1="0" y1="0" x2="600" y2="900" stroke="white" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-eyebrow">Contacto</div>
+    <h2 class="contact-heading">Contame tu<br><em>proyecto</em></h2>
+    <div class="contact-links">
+      <a href="https://wa.me/5493571682836" target="_blank" class="contact-link">
+        <div>
+          <div class="link-type">WhatsApp</div>
+          <div class="link-value">+54 9 3571 68-2836</div>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">GG <em>Desarrollos</em></div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.contact-eyebrow, .contact-heading, .contact-links').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
