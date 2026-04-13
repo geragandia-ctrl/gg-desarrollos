@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GG Desarrollos | Gerardo Gandia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#dae2fd",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#a9c7ff",
+              "background": "#faf8ff",
+              "on-secondary-container": "#57657a",
+              "on-error": "#ffffff",
+              "primary-fixed-dim": "#a9c7ff",
+              "inverse-on-surface": "#eef0ff",
+              "on-tertiary-fixed-variant": "#713619",
+              "on-tertiary-fixed": "#360f00",
+              "tertiary-fixed-dim": "#ffb596",
+              "primary-fixed": "#d6e3ff",
+              "surface-container-highest": "#dae2fd",
+              "secondary-fixed": "#d5e3fc",
+              "secondary-fixed-dim": "#b9c7df",
+              "on-primary-fixed": "#001b3d",
+              "on-error-container": "#93000a",
+              "primary-container": "#002b5b",
+              "surface-bright": "#faf8ff",
+              "tertiary-container": "#4f1c02",
+              "surface": "#faf8ff",
+              "on-background": "#131b2e",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#405f91",
+              "surface-container": "#eaedff",
+              "surface-container-high": "#e2e7ff",
+              "on-surface-variant": "#43474f",
+              "on-primary-fixed-variant": "#264778",
+              "on-secondary-fixed-variant": "#3a485b",
+              "secondary-container": "#d5e3fc",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-container": "#7594ca",
+              "outline": "#747780",
+              "on-tertiary-container": "#cd805d",
+              "outline-variant": "#c4c6d0",
+              "on-primary": "#ffffff",
+              "inverse-surface": "#283044",
+              "primary": "#001736",
+              "tertiary": "#2f0c00",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#d2d9f4",
+              "surface-container-low": "#f2f3ff",
+              "on-surface": "#131b2e",
+              "on-secondary-fixed": "#0d1c2e",
+              "tertiary-fixed": "#ffdbcd",
+              "secondary": "#515f74"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Flotación suave del mockup */
+        @keyframes float {
+            0%   { transform: translateY(0px); }
+            50%  { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .mockup-float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* La tarjeta flotante va en dirección levemente opuesta para más profundidad */
+        @keyframes float-card {
+            0%   { transform: translateY(0px); }
+            50%  { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+        .card-float {
+            animation: float-card 5s ease-in-out 0.4s infinite;
+        }
+
+        .footer-tag {
+            transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
+            cursor: default;
+        }
+        .footer-tag:hover {
+            color: #001736;
+            border-color: #001736;
+            text-shadow: 0 2px 8px rgba(10,25,60,0.25);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-md">
+<div class="flex justify-between items-center px-6 py-5 max-w-screen-2xl mx-auto w-full">
+<div class="text-2xl font-black tracking-tighter text-primary font-headline">
+                GG Desarrollos
+            </div>
+<div class="flex items-center gap-4">
+<a class="font-headline tracking-tight font-bold text-base text-primary flex items-center gap-2 px-4 py-2 hover:bg-surface-container-low rounded-md transition-all" href="https://wa.me/3571682836" target="_blank">
+<span class="material-symbols-outlined" style="font-size:23px;">contact_support</span>
+                    Contacto
+                </a>
+</div>
+</div>
+</nav>
+
+<!-- Main Content Area -->
+<main class="h-screen w-full flex flex-col justify-center items-center px-6 relative overflow-hidden">
+<!-- Background Tonal Layering Elements -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-surface-container-low -z-10"></div>
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+
+<div class="max-w-screen-2xl w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+
+    <!-- Left Column: Copy -->
+    <div class="md:col-span-5 flex flex-col items-start gap-3">
+        <div class="h-1 w-8 bg-surface-tint mb-3"></div>
+        <h1 class="font-headline font-extrabold text-on-surface tracking-tighter leading-none text-6xl md:text-8xl">
+            Gerardo Gandia
+        </h1>
+        <p class="font-body text-lg md:text-xl text-on-surface-variant font-medium max-w-md">
+            Convierto ideas en productos digitales
+        </p>
+        <div class="mt-5 flex gap-3">
+            <a class="px-7 py-3.5 bg-primary text-on-primary rounded-md font-headline font-bold tracking-tight text-base hover:bg-primary-container transition-all active:scale-95 duration-200" href="https://wa.me/3571682836">
+                Iniciar Proyecto
+            </a>
+        </div>
+    </div>
+
+    <!-- Right Column: Mockup con flotación -->
+    <div class="md:col-span-7 relative flex items-center justify-center py-10">
+
+        <!-- Mockup Shell con animación de flotación -->
+        <div class="mockup-float w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-[0_24px_48px_-12px_rgba(19,27,46,0.08)] overflow-hidden border border-outline-variant/15 aspect-video flex">
+            <!-- Sidebar -->
+            <div class="w-14 md:w-16 bg-primary-container h-full flex flex-col items-center py-5 gap-6">
+                <div class="w-6 h-6 rounded-lg bg-on-primary-container/20 border border-on-primary-container/10"></div>
+                <div class="flex flex-col gap-4 opacity-40">
+                    <span class="material-symbols-outlined text-on-primary-container" style="font-size:18px;">dashboard</span>
+                    <span class="material-symbols-outlined text-on-primary-container" style="font-size:18px;">analytics</span>
+                    <span class="material-symbols-outlined text-on-primary-container" style="font-size:18px;">layers</span>
+                    <span class="material-symbols-outlined text-on-primary-container" style="font-size:18px;">settings</span>
+                </div>
+            </div>
+            <!-- Canvas -->
+            <div class="flex-1 p-6 flex flex-col gap-4">
+                <div class="flex justify-between items-center">
+                    <div class="h-5 w-28 bg-surface-container-high rounded-full"></div>
+                    <div class="h-7 w-7 bg-surface-container-highest rounded-full"></div>
+                </div>
+                <!-- Bento Grid -->
+                <div class="grid grid-cols-3 gap-3 h-full">
+                    <div class="col-span-2 bg-surface-container-low rounded-lg p-5">
+                        <div class="h-3 w-20 bg-surface-tint/20 rounded-full mb-3"></div>
+                        <div class="h-3 w-full bg-outline-variant/10 rounded-full mb-2"></div>
+                        <div class="h-3 w-2/3 bg-outline-variant/10 rounded-full"></div>
+                    </div>
+                    <div class="bg-primary/5 rounded-lg flex flex-col items-center justify-center p-3">
+                        <div class="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center mb-2">
+                            <span class="material-symbols-outlined text-primary" style="font-size:18px;">terminal</span>
+                        </div>
+                        <div class="h-2 w-10 bg-primary/20 rounded-full"></div>
+                    </div>
+                    <div class="col-span-3 h-16 bg-surface-container-highest rounded-lg flex items-center px-4 gap-3">
+                        <div class="h-8 w-8 bg-white rounded shadow-sm flex-shrink-0"></div>
+                        <div class="flex-1 space-y-1.5">
+                            <div class="h-2 w-full bg-on-surface-variant/10 rounded-full"></div>
+                            <div class="h-2 w-1/2 bg-on-surface-variant/10 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Detail Card con animación ligeramente desfasada -->
+        <div class="card-float absolute -bottom-2 -left-4 bg-white p-4 rounded-xl shadow-xl border border-outline-variant/15 flex items-center gap-3">
+            <div class="w-9 h-9 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-on-tertiary-fixed-variant" style="font-size:16px;">architecture</span>
+            </div>
+            <div>
+                <p class="font-headline font-bold text-on-surface text-xs">Arquitectura de Datos</p>
+                <p class="font-body text-on-surface-variant text-[10px]">Optimización y Escalabilidad</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="fixed bottom-0 w-full z-40 bg-surface">
+<div class="flex justify-between items-center px-6 py-8 w-full max-w-screen-2xl mx-auto border-t border-outline-variant/10">
+<div class="flex flex-wrap gap-x-6 gap-y-2 text-on-surface-variant">
+<span class="footer-tag font-label text-sm uppercase tracking-widest font-medium border-l-2 border-surface-tint pl-4">Desarrollo software</span>
+<span class="footer-tag font-label text-sm uppercase tracking-widest font-medium border-l-2 border-surface-tint pl-4">Sistemas de gestion</span>
+<span class="footer-tag font-label text-sm uppercase tracking-widest font-medium border-l-2 border-surface-tint pl-4">sitios corporativos</span>
+<span class="footer-tag font-label text-sm uppercase tracking-widest font-medium border-l-2 border-surface-tint pl-4">Landing page</span>
+</div>
+<div class="hidden lg:block">
+<p class="font-label text-xs uppercase tracking-widest text-on-secondary-container">© 2024 GG Desarrollos </p>
+</div>
+</div>
+</footer>
+
+</body></html>
