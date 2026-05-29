@@ -1,231 +1,376 @@
 <!DOCTYPE html>
-
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>GG Desarrollos | Gerardo Gandia</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "surface-variant": "#dae2fd",
-              "error-container": "#ffdad6",
-              "inverse-primary": "#a9c7ff",
-              "background": "#faf8ff",
-              "on-secondary-container": "#57657a",
-              "on-error": "#ffffff",
-              "primary-fixed-dim": "#a9c7ff",
-              "inverse-on-surface": "#eef0ff",
-              "on-tertiary-fixed-variant": "#713619",
-              "on-tertiary-fixed": "#360f00",
-              "tertiary-fixed-dim": "#ffb596",
-              "primary-fixed": "#d6e3ff",
-              "surface-container-highest": "#dae2fd",
-              "secondary-fixed": "#d5e3fc",
-              "secondary-fixed-dim": "#b9c7df",
-              "on-primary-fixed": "#001b3d",
-              "on-error-container": "#93000a",
-              "primary-container": "#002b5b",
-              "surface-bright": "#faf8ff",
-              "tertiary-container": "#4f1c02",
-              "surface": "#faf8ff",
-              "on-background": "#131b2e",
-              "error": "#ba1a1a",
-              "on-tertiary": "#ffffff",
-              "surface-tint": "#405f91",
-              "surface-container": "#eaedff",
-              "surface-container-high": "#e2e7ff",
-              "on-surface-variant": "#43474f",
-              "on-primary-fixed-variant": "#264778",
-              "on-secondary-fixed-variant": "#3a485b",
-              "secondary-container": "#d5e3fc",
-              "surface-container-lowest": "#ffffff",
-              "on-primary-container": "#7594ca",
-              "outline": "#747780",
-              "on-tertiary-container": "#cd805d",
-              "outline-variant": "#c4c6d0",
-              "on-primary": "#ffffff",
-              "inverse-surface": "#283044",
-              "primary": "#001736",
-              "tertiary": "#2f0c00",
-              "on-secondary": "#ffffff",
-              "surface-dim": "#d2d9f4",
-              "surface-container-low": "#f2f3ff",
-              "on-surface": "#131b2e",
-              "on-secondary-fixed": "#0d1c2e",
-              "tertiary-fixed": "#ffdbcd",
-              "secondary": "#515f74"
-            },
-            fontFamily: {
-              "headline": ["Manrope"],
-              "body": ["Inter"],
-              "label": ["Inter"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-          },
-        },
-      }
-    </script>
-<style>
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow: hidden;
-            height: 100vh;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-
-        /* Flotación suave del mockup */
-        @keyframes float {
-            0%   { transform: translateY(0px); }
-            50%  { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        .mockup-float {
-            animation: float 5s ease-in-out infinite;
-        }
-
-        /* La tarjeta flotante va en dirección levemente opuesta para más profundidad */
-        @keyframes float-card {
-            0%   { transform: translateY(0px); }
-            50%  { transform: translateY(-6px); }
-            100% { transform: translateY(0px); }
-        }
-        .card-float {
-            animation: float-card 5s ease-in-out 0.4s infinite;
-        }
-
-        .footer-tag {
-            transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
-            cursor: default;
-        }
-        .footer-tag:hover {
-            color: #001736;
-            border-color: #001736;
-            text-shadow: 0 2px 8px rgba(10,25,60,0.25);
-        }
-    </style>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GG Desarrollos — Páginas web hechas a tu medida</title>
+<meta name="description" content="Gerardo Gandía — desarrollo web freelance. Diseño y construyo páginas y sistemas web a medida.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-surface text-on-surface">
+<body>
+<a id="top"></a>
 
-<!-- Top Navigation Bar -->
-<nav class="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-md">
-<div class="flex justify-between items-center px-6 py-5 max-w-screen-2xl mx-auto w-full">
-<div class="text-2xl font-black tracking-tighter text-primary font-headline">
-                GG Desarrollos
-            </div>
-<div class="flex items-center gap-4">
-<a class="font-headline tracking-tight font-bold text-base text-primary flex items-center gap-2 px-4 py-2 hover:bg-surface-container-low rounded-md transition-all" href="https://wa.me/3571682836" target="_blank">
-<span class="material-symbols-outlined" style="font-size:23px;">contact_support</span>
-                    Contacto
-                </a>
-</div>
-</div>
-</nav>
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="wordmark">GG Desarrollos<span class="dot">.</span></a>
+    <nav><ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#sobre">Sobre mí</a></li>
+    </ul></nav>
+    <a class="btn btn-primary" href="https://wa.me/5493571682836" target="_blank" rel="noopener">Hablemos →</a>
+  </div>
+</header>
 
-<!-- Main Content Area -->
-<main class="h-screen w-full flex flex-col justify-center items-center px-6 relative overflow-hidden">
-<!-- Background Tonal Layering Elements -->
-<div class="absolute top-0 right-0 w-1/2 h-full bg-surface-container-low -z-10"></div>
-<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <h1 class="hero-title">
+      <span class="word w1">Tu</span>
+      <span class="word w2">próxima</span>
+      <span class="word w3">web,</span>
+      <span class="word w4">hecha</span>
+      <span class="word w5">a medida.</span>
+    </h1>
+    <p class="hero-sub">
+      Diseño y construyo páginas y sistemas web a medida. Trabajás directo conmigo, sin agencias ni intermediarios.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://wa.me/5493571682836" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+        Hablemos por WhatsApp
+      </a>
+      <a class="btn-link" href="#proyectos">Ver proyectos <span class="arrow">→</span></a>
+    </div>
+  </div>
 
-<div class="max-w-screen-2xl w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-
-    <!-- Left Column: Copy -->
-    <div class="md:col-span-5 flex flex-col items-start gap-3">
-        <div class="h-1 w-8 bg-surface-tint mb-3"></div>
-        <h1 class="font-headline font-extrabold text-on-surface tracking-tighter leading-none text-6xl md:text-8xl">
-            Gerardo Gandia
-        </h1>
-        <p class="font-body text-lg md:text-xl text-on-surface-variant font-medium max-w-md">
-            Convierto ideas en productos digitales
-        </p>
-        <div class="mt-5 flex gap-3">
-            <a class="px-7 py-3.5 bg-primary text-on-primary rounded-md font-headline font-bold tracking-tight text-base hover:bg-primary-container transition-all active:scale-95 duration-200" href="https://wa.me/3571682836">
-                Iniciar Proyecto
-            </a>
-        </div>
+  <!-- Cluster de devices con glow -->
+  <div class="hero-scene">
+    <div class="notif">
+      <div class="notif-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+      </div>
+      <div class="notif-text">
+        <strong>Turno reservado</strong>
+        <span>Miércoles 11 · 11:30 hs</span>
+      </div>
     </div>
 
-    <!-- Right Column: Mockup con flotación -->
-    <div class="md:col-span-7 relative flex items-center justify-center py-10">
-
-        <!-- Mockup Shell con animación de flotación -->
-        <div class="mockup-float w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-[0_24px_48px_-12px_rgba(19,27,46,0.08)] overflow-hidden border border-outline-variant/15 aspect-video flex">
-            <!-- Sidebar -->
-            <div class="w-14 md:w-16 bg-primary-container h-full flex flex-col items-center py-5 gap-6">
-                <div class="w-6 h-6 rounded-lg bg-on-primary-container/20 border border-on-primary-container/10"></div>
-                <div class="flex flex-col gap-4 opacity-40">
-                    <span class="material-symbols-outlined text-on-primary-container" style="font-size:18px;">dashboard</span>
-                    <span class="material-symbols-outlined text-on-primary-container" style="font-size:18px;">analytics</span>
-                    <span class="material-symbols-outlined text-on-primary-container" style="font-size:18px;">layers</span>
-                    <span class="material-symbols-outlined text-on-primary-container" style="font-size:18px;">settings</span>
-                </div>
-            </div>
-            <!-- Canvas -->
-            <div class="flex-1 p-6 flex flex-col gap-4">
-                <div class="flex justify-between items-center">
-                    <div class="h-5 w-28 bg-surface-container-high rounded-full"></div>
-                    <div class="h-7 w-7 bg-surface-container-highest rounded-full"></div>
-                </div>
-                <!-- Bento Grid -->
-                <div class="grid grid-cols-3 gap-3 h-full">
-                    <div class="col-span-2 bg-surface-container-low rounded-lg p-5">
-                        <div class="h-3 w-20 bg-surface-tint/20 rounded-full mb-3"></div>
-                        <div class="h-3 w-full bg-outline-variant/10 rounded-full mb-2"></div>
-                        <div class="h-3 w-2/3 bg-outline-variant/10 rounded-full"></div>
-                    </div>
-                    <div class="bg-primary/5 rounded-lg flex flex-col items-center justify-center p-3">
-                        <div class="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center mb-2">
-                            <span class="material-symbols-outlined text-primary" style="font-size:18px;">terminal</span>
-                        </div>
-                        <div class="h-2 w-10 bg-primary/20 rounded-full"></div>
-                    </div>
-                    <div class="col-span-3 h-16 bg-surface-container-highest rounded-lg flex items-center px-4 gap-3">
-                        <div class="h-8 w-8 bg-white rounded shadow-sm flex-shrink-0"></div>
-                        <div class="flex-1 space-y-1.5">
-                            <div class="h-2 w-full bg-on-surface-variant/10 rounded-full"></div>
-                            <div class="h-2 w-1/2 bg-on-surface-variant/10 rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Floating Detail Card con animación ligeramente desfasada -->
-        <div class="card-float absolute -bottom-2 -left-4 bg-white p-4 rounded-xl shadow-xl border border-outline-variant/15 flex items-center gap-3">
-            <div class="w-9 h-9 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
-                <span class="material-symbols-outlined text-on-tertiary-fixed-variant" style="font-size:16px;">architecture</span>
-            </div>
-            <div>
-                <p class="font-headline font-bold text-on-surface text-xs">Arquitectura de Datos</p>
-                <p class="font-body text-on-surface-variant text-[10px]">Optimización y Escalabilidad</p>
-            </div>
-        </div>
-
+    <div class="avatar-float">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
     </div>
-</div>
-</main>
 
-<!-- Footer -->
-<footer class="fixed bottom-0 w-full z-40 bg-surface">
-<div class="flex justify-between items-center px-6 py-8 w-full max-w-screen-2xl mx-auto border-t border-outline-variant/10">
-<div class="flex flex-wrap gap-x-6 gap-y-2 text-on-surface-variant">
-<span class="footer-tag font-label text-sm uppercase tracking-widest font-medium border-l-2 border-surface-tint pl-4">Desarrollo software</span>
-<span class="footer-tag font-label text-sm uppercase tracking-widest font-medium border-l-2 border-surface-tint pl-4">Sistemas de gestion</span>
-<span class="footer-tag font-label text-sm uppercase tracking-widest font-medium border-l-2 border-surface-tint pl-4">sitios corporativos</span>
-<span class="footer-tag font-label text-sm uppercase tracking-widest font-medium border-l-2 border-surface-tint pl-4">Landing page</span>
-</div>
-<div class="hidden lg:block">
-<p class="font-label text-xs uppercase tracking-widest text-on-secondary-container">© 2024 GG Desarrollos </p>
-</div>
-</div>
+    <div class="scene-stack">
+      <!-- LAPTOP plateada -->
+      <svg class="laptop" viewBox="0 0 820 540" xmlns="http://www.w3.org/2000/svg" aria-label="Vista en notebook">
+        <defs>
+          <linearGradient id="silver-lid" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"  stop-color="#F2F0F6"/>
+            <stop offset="55%" stop-color="#D8D5E0"/>
+            <stop offset="100%" stop-color="#B8B5C5"/>
+          </linearGradient>
+          <linearGradient id="silver-base" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"  stop-color="#CCC9D6"/>
+            <stop offset="60%" stop-color="#A8A4B5"/>
+            <stop offset="100%" stop-color="#7E7A8C"/>
+          </linearGradient>
+          <linearGradient id="hinge" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5C5868"/>
+            <stop offset="100%" stop-color="#363242"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Lid (cuerpo plateado) -->
+        <rect x="70" y="20" width="680" height="420" rx="18" fill="url(#silver-lid)"/>
+        <!-- Highlight superior sutil -->
+        <rect x="74" y="24" width="672" height="2" rx="1" fill="rgba(255,255,255,.6)"/>
+        <!-- Bezel oscuro alrededor de la pantalla -->
+        <rect x="82" y="32" width="656" height="396" rx="12" fill="#1A1424"/>
+        <!-- Camera dot -->
+        <circle cx="410" cy="46" r="2" fill="#3A3448"/>
+        <!-- Pantalla -->
+        <rect x="92" y="58" width="636" height="362" rx="6" fill="#F5F0FB"/>
+
+        <!-- ====== SITIO DEMO dentro de la pantalla ====== -->
+        <g transform="translate(92 58)">
+          <!-- Top nav -->
+          <rect width="636" height="46" fill="#FFFFFF"/>
+          <line x1="0" y1="46" x2="636" y2="46" stroke="#EDE6F7" stroke-width="1"/>
+          <circle cx="28" cy="23" r="7" fill="#471D6E"/>
+          <text x="44" y="27" font-family="Fraunces" font-weight="700" font-size="13" fill="#1C0E3A">Salón Pilar</text>
+          <g font-family="Bricolage Grotesque" font-size="10" fill="#7A6E92">
+            <text x="262" y="27">Inicio</text>
+            <text x="307" y="27">Servicios</text>
+            <text x="367" y="27">Contacto</text>
+          </g>
+          <rect x="554" y="13" width="68" height="22" rx="11" fill="#471D6E"/>
+          <text x="588" y="27" text-anchor="middle" font-family="Bricolage Grotesque" font-size="10" font-weight="600" fill="#FFFFFF">Reservar</text>
+
+          <!-- Hero del sitio demo -->
+          <g transform="translate(48 90)">
+            <text x="0" y="0" font-family="Bricolage Grotesque" font-weight="700" font-size="9" letter-spacing="1.5" fill="#471D6E">ESTÉTICA EN VILLA URQUIZA</text>
+            <text x="0" y="46" font-family="Fraunces" font-weight="700" font-size="34" fill="#1C0E3A" letter-spacing="-1.4">Reservá tu</text>
+            <text x="0" y="84" font-family="Fraunces" font-weight="700" font-size="34" fill="#1C0E3A" letter-spacing="-1.4">turno online.</text>
+            <text x="0" y="116" font-family="Bricolage Grotesque" font-size="11" fill="#4A3A6E">En menos de un minuto, sin llamados</text>
+            <text x="0" y="132" font-family="Bricolage Grotesque" font-size="11" fill="#4A3A6E">ni esperas. Elegí día y horario.</text>
+            <rect x="0" y="156" width="160" height="40" rx="20" fill="#471D6E"/>
+            <text x="80" y="181" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="600" font-size="12" fill="#FFFFFF">Reservar ahora →</text>
+            <text x="180" y="181" font-family="Bricolage Grotesque" font-weight="600" font-size="11" fill="#4A3A6E">Ver servicios</text>
+          </g>
+
+          <!-- Calendario derecha -->
+          <g transform="translate(364 90)">
+            <rect x="3" y="3" width="226" height="226" rx="16" fill="#1C0E3A" opacity="0.08"/>
+            <rect width="226" height="226" rx="16" fill="#FFFFFF"/>
+            <text x="20" y="32" font-family="Fraunces" font-weight="700" font-size="14" fill="#1C0E3A">Junio 2026</text>
+            <circle cx="186" cy="27" r="10" fill="#F5F0FB"/>
+            <path d="M188 23 L184 27 L188 31" stroke="#4A3A6E" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="208" cy="27" r="10" fill="#F5F0FB"/>
+            <path d="M206 23 L210 27 L206 31" stroke="#4A3A6E" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <g font-family="Bricolage Grotesque" font-size="8" fill="#7A6E92" text-anchor="middle">
+              <text x="32" y="58">L</text><text x="58" y="58">M</text><text x="84" y="58">M</text><text x="110" y="58">J</text><text x="136" y="58">V</text><text x="162" y="58">S</text><text x="188" y="58">D</text>
+            </g>
+            <g font-family="Bricolage Grotesque" font-size="10" text-anchor="middle">
+              <text x="32" y="82" fill="#1C0E3A">1</text><text x="58" y="82" fill="#1C0E3A">2</text><text x="84" y="82" fill="#1C0E3A">3</text><text x="110" y="82" fill="#1C0E3A">4</text><text x="136" y="82" fill="#1C0E3A">5</text><text x="162" y="82" fill="#1C0E3A">6</text><text x="188" y="82" fill="#1C0E3A">7</text>
+              <text x="32" y="106" fill="#1C0E3A">8</text><text x="58" y="106" fill="#1C0E3A">9</text><text x="84" y="106" fill="#1C0E3A">10</text>
+              <circle cx="110" cy="102" r="13" fill="#471D6E"/>
+              <text x="110" y="106" fill="#FFFFFF" font-weight="700">11</text>
+              <text x="136" y="106" fill="#1C0E3A">12</text><text x="162" y="106" fill="#1C0E3A">13</text><text x="188" y="106" fill="#1C0E3A">14</text>
+              <text x="32" y="130" fill="#1C0E3A">15</text><text x="58" y="130" fill="#1C0E3A">16</text><text x="84" y="130" fill="#1C0E3A">17</text><text x="110" y="130" fill="#1C0E3A">18</text><text x="136" y="130" fill="#1C0E3A">19</text><text x="162" y="130" fill="#1C0E3A">20</text><text x="188" y="130" fill="#1C0E3A">21</text>
+            </g>
+            <line x1="20" y1="150" x2="206" y2="150" stroke="#EDE6F7"/>
+            <text x="20" y="170" font-family="Bricolage Grotesque" font-size="9" font-weight="700" fill="#1C0E3A">HORARIOS DISPONIBLES</text>
+            <rect x="20" y="182" width="52" height="28" rx="14" fill="#F5F0FB"/>
+            <text x="46" y="200" text-anchor="middle" font-family="Bricolage Grotesque" font-size="10" fill="#4A3A6E">10:00</text>
+            <rect x="80" y="182" width="52" height="28" rx="14" fill="#471D6E"/>
+            <text x="106" y="200" text-anchor="middle" font-family="Bricolage Grotesque" font-size="10" font-weight="600" fill="#FFFFFF">11:30</text>
+            <rect x="140" y="182" width="52" height="28" rx="14" fill="#F5F0FB"/>
+            <text x="166" y="200" text-anchor="middle" font-family="Bricolage Grotesque" font-size="10" fill="#4A3A6E">14:00</text>
+          </g>
+        </g>
+
+        <!-- Hinge (bisagra) — línea fina entre pantalla y base -->
+        <rect x="70" y="440" width="680" height="4" fill="url(#hinge)"/>
+
+        <!-- BASE plateada (con perspectiva) -->
+        <path d="M40 444 L780 444 L760 490 L60 490 Z" fill="url(#silver-base)"/>
+        <!-- Borde inferior sombreado -->
+        <path d="M60 487 L760 487 L758 491 L62 491 Z" fill="#5E5A6C"/>
+        <!-- Reflejo interno de la base -->
+        <rect x="56" y="446" width="708" height="1.5" fill="rgba(255,255,255,.4)"/>
+
+        <!-- Sombra debajo (oval blureado) -->
+        <ellipse cx="410" cy="510" rx="320" ry="14" fill="#160929" opacity=".15"/>
+      </svg>
+
+      <!-- CELU -->
+      <svg class="phone" viewBox="0 0 240 480" xmlns="http://www.w3.org/2000/svg" aria-label="Vista en celular">
+        <defs>
+          <linearGradient id="phone-body" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#28203A"/>
+            <stop offset="100%" stop-color="#14082A"/>
+          </linearGradient>
+        </defs>
+        <rect width="240" height="480" rx="38" fill="url(#phone-body)"/>
+        <rect x="6" y="6" width="228" height="468" rx="34" fill="none" stroke="#3A3050" stroke-width="1"/>
+        <rect x="10" y="10" width="220" height="460" rx="30" fill="#F5F0FB"/>
+        <rect x="92" y="14" width="56" height="18" rx="9" fill="#0E041C"/>
+
+        <g transform="translate(10 40)">
+          <circle cx="22" cy="20" r="6" fill="#471D6E"/>
+          <text x="34" y="24" font-family="Fraunces" font-weight="700" font-size="11" fill="#1C0E3A">Salón Pilar</text>
+          <g stroke="#4A3A6E" stroke-width="1.5" stroke-linecap="round">
+            <line x1="194" y1="17" x2="206" y2="17"/>
+            <line x1="194" y1="23" x2="206" y2="23"/>
+          </g>
+          <text x="16" y="68" font-family="Bricolage Grotesque" font-weight="700" font-size="7" letter-spacing="1" fill="#471D6E">ESTÉTICA</text>
+          <text x="16" y="102" font-family="Fraunces" font-weight="700" font-size="24" fill="#1C0E3A" letter-spacing="-1">Reservá</text>
+          <text x="16" y="128" font-family="Fraunces" font-weight="700" font-size="24" fill="#1C0E3A" letter-spacing="-1">tu turno.</text>
+          <text x="16" y="150" font-family="Bricolage Grotesque" font-size="9" fill="#4A3A6E">En menos de un minuto.</text>
+          <rect x="16" y="164" width="130" height="34" rx="17" fill="#471D6E"/>
+          <text x="81" y="186" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="600" font-size="10" fill="#FFFFFF">Reservar →</text>
+          <rect x="16" y="216" width="188" height="186" rx="14" fill="#FFFFFF"/>
+          <text x="28" y="238" font-family="Fraunces" font-weight="700" font-size="11" fill="#1C0E3A">Junio 2026</text>
+          <g font-family="Bricolage Grotesque" font-size="9" text-anchor="middle">
+            <text x="46" y="262" fill="#7A6E92">L</text><text x="86" y="262" fill="#7A6E92">M</text><text x="126" y="262" fill="#7A6E92">J</text><text x="166" y="262" fill="#7A6E92">V</text>
+            <text x="46" y="288" fill="#1C0E3A">1</text><text x="86" y="288" fill="#1C0E3A">2</text><text x="126" y="288" fill="#1C0E3A">3</text><text x="166" y="288" fill="#1C0E3A">4</text>
+            <text x="46" y="313" fill="#1C0E3A">8</text><text x="86" y="313" fill="#1C0E3A">9</text>
+            <circle cx="126" cy="309" r="11" fill="#471D6E"/>
+            <text x="126" y="313" fill="#FFFFFF" font-weight="700">11</text>
+            <text x="166" y="313" fill="#1C0E3A">12</text>
+          </g>
+          <rect x="28" y="338" width="48" height="22" rx="11" fill="#F5F0FB"/>
+          <text x="52" y="353" text-anchor="middle" font-family="Bricolage Grotesque" font-size="9" fill="#4A3A6E">10:00</text>
+          <rect x="84" y="338" width="48" height="22" rx="11" fill="#471D6E"/>
+          <text x="108" y="353" text-anchor="middle" font-family="Bricolage Grotesque" font-size="9" font-weight="600" fill="#FFFFFF">11:30</text>
+          <rect x="140" y="338" width="48" height="22" rx="11" fill="#F5F0FB"/>
+          <text x="164" y="353" text-anchor="middle" font-family="Bricolage Grotesque" font-size="9" fill="#4A3A6E">14:00</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Lo que puedo construir <span class="accent">para vos</span></h2>
+      <p>Tres formas en que puedo ayudar a tu negocio a estar mejor presentado en internet.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><circle cx="6" cy="6.5" r=".6" fill="currentColor"/><circle cx="8.2" cy="6.5" r=".6" fill="currentColor"/></svg>
+        </div>
+        <h3>Páginas web</h3>
+        <p>Modernas, rápidas y que se ven increíbles tanto en el celular como en la compu.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.2 12.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7z"/><path d="M8.5 7a3.5 3.5 0 0 1 7 0"/></svg>
+        </div>
+        <h3>Tiendas online</h3>
+        <p>Para que vendas por internet con cobros, catálogo y pedidos funcionando solos.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.5 5.5l2 2M16.5 16.5l2 2M18.5 5.5l-2 2M5.5 18.5l2-2"/></svg>
+        </div>
+        <h3>Sistemas a medida</h3>
+        <p>Apps internas para ordenar tu negocio: clientes, stock, pedidos, lo que necesites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROYECTOS ============ -->
+<section class="projects" id="proyectos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Algunos <span class="accent">proyectos destacados</span></h2>
+      <p>Productos reales, en producción, usados todos los días.</p>
+    </div>
+
+    <!-- 01 SUBIX -->
+    <article class="project p-pink reveal">
+      <div class="project-text">
+        <span class="project-tag">Plataforma web</span>
+        <h3 class="project-name">Subix</h3>
+        <p class="project-desc">Una plataforma donde los creadores de contenido cobran suscripciones por sus comunidades privadas. Los cobros y el acceso se manejan solos, sin que el creador ni los suscriptores tengan que hacer nada manual.</p>
+        <a class="project-link" href="https://subix.io" target="_blank" rel="noopener">Visitar el sitio <span class="arrow">→</span></a>
+      </div>
+      <div class="project-art">
+        <span class="shot-glow"></span>
+        <div class="shot-wrap">
+          <div class="shot-bar">
+            <div class="shot-dots"><i></i><i></i><i></i></div>
+            <div class="shot-url">subix.io</div>
+          </div>
+          <div class="shot-img">
+            <span class="ph">Subix</span>
+            <img src="assets/images/subix.png" alt="Captura de Subix" loading="lazy" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 MATEXA -->
+    <article class="project p-violet reveal">
+      <div class="project-text">
+        <span class="project-tag">App de gestión</span>
+        <h3 class="project-name">Matexa</h3>
+        <p class="project-desc">Un sistema para que talleres y proveedores de repuestos coticen y se pongan de acuerdo sin perderse entre mensajes de WhatsApp y planillas. Todo el pedido queda ordenado y con su estado a la vista.</p>
+        <a class="project-link" href="https://matexa.app" target="_blank" rel="noopener">Visitar el sitio <span class="arrow">→</span></a>
+      </div>
+      <div class="project-art">
+        <span class="shot-glow"></span>
+        <div class="shot-wrap">
+          <div class="shot-bar">
+            <div class="shot-dots"><i></i><i></i><i></i></div>
+            <div class="shot-url">matexa.app</div>
+          </div>
+          <div class="shot-img">
+            <span class="ph">Matexa</span>
+            <img src="assets/images/matexa.png" alt="Captura de Matexa" loading="lazy" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 ESPACIOS VERDES -->
+    <article class="project p-mint reveal">
+      <div class="project-text">
+        <span class="project-tag">Sistema interno</span>
+        <h3 class="project-name">Espacios Verdes</h3>
+        <p class="project-desc">Un sistema a medida para un ministerio provincial. Permite seguir de cerca los programas de huertas escolares con acceso privado y seguro, pensado solo para el equipo de trabajo.</p>
+        <a class="project-link" href="https://espaciosverdes.app" target="_blank" rel="noopener">Visitar el sitio <span class="arrow">→</span></a>
+      </div>
+      <div class="project-art">
+        <span class="shot-glow"></span>
+        <div class="shot-wrap">
+          <div class="shot-bar">
+            <div class="shot-dots"><i></i><i></i><i></i></div>
+            <div class="shot-url">espaciosverdes.app</div>
+          </div>
+          <div class="shot-img">
+            <span class="ph">Espacios Verdes</span>
+            <img src="assets/images/espaciosverdes.png" alt="Captura de Espacios Verdes" loading="lazy" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ Sobre mí (oscuro con glow dramático) ============ -->
+<section class="about-dark" id="sobre">
+  <div class="reveal">
+    <h2>Trabajás directo conmigo.</h2>
+    <p>Soy Gerardo Gandía, desarrollador web. Hablás conmigo de principio a fin: te escucho, entiendo qué necesitás y te lo construyo. Trabajos entregados en hasta 48 hs.</p>
+    <a class="btn btn-on-dark" href="https://wa.me/5493571682836" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+      Hablemos
+    </a>
+  </div>
+</section>
+
+<!-- ============ CTA final ============ -->
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>¿Armamos tu web?</h2>
+      <p>Contame qué tenés en mente y te respondo yo, directo por WhatsApp.</p>
+      <a class="btn btn-primary" href="https://wa.me/5493571682836" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+      Escribime por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <span class="wordmark">GG Desarrollos<span class="dot">.</span></span>
+  <div>Desarrollo web freelance · 2026</div>
 </footer>
 
-</body></html>
+<script>
+  // sombra navbar al scrollear
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  // reveal al entrar en pantalla
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
